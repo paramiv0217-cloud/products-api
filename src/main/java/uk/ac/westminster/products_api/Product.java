@@ -20,7 +20,7 @@ public class Product {
     }
 
     public String getName() {
-        return name;
+        return name;// Activity 3: getter restored
     }
 
     public double getPrice() {
