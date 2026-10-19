@@ -30,11 +30,11 @@ class ProductService {
 class ProductController {
     - productService : ProductService
     --
-    + getAllProducts()
-    + getProductById(id : Long)
-    + addProduct(product : Product)
-    + deleteProduct(id : Long)
-    + search(name : String)
+    + getAllProducts() : List<Product>
+    + getById(id : Long) : ResponseEntity<Product>
+    + addProduct(product : Product) : Product
+    + deleteProduct(id : Long) : ResponseEntity<Void>
+    + search(name : String) : List<Product>
 }
 
 ProductController ..> ProductService
