@@ -1,4 +1,4 @@
-0```plantuml
+
 @startuml
 
 class Product {
@@ -11,7 +11,33 @@ class Product {
     + getId() : Long
     + getName() : String
     + getPrice() : double
+    + setId(id : Long) : void
+    + setName(name : String) : void
+    + setPrice(price : double) : void
 }
 
+class ProductService {
+    - products : List<Product>
+    - nextId : Long
+    --
+    + getAllProducts() : List<Product>
+    + getProductById(id : Long) : Optional<Product>
+    + addProduct(product : Product) : Product
+    + deleteProduct(id : Long) : boolean
+    + findByName(name : String) : List<Product>
+}
+
+class ProductController {
+    - productService : ProductService
+    --
+    + getAllProducts()
+    + getProductById(id : Long)
+    + addProduct(product : Product)
+    + deleteProduct(id : Long)
+    + search(name : String)
+}
+
+ProductController ..> ProductService
+ProductService --> Product
+
 @enduml
-```
